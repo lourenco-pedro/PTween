@@ -4,30 +4,30 @@
 <img src="https://media.giphy.com/media/z088g5dDX5IqSsnXM3/giphy.gif" style="max-height: 300px;">
 </p>
 
-Uma maneira mais fácil de criar animações para UI. Crie navegações mais dinâmicas entre interfaces, com uma API simples e fácil de entender.
+An easy way to create animations for your UIs. Create dynamics navigation between interfaces, with a simple and intuitive API.
 
-Se vocês tiverem qualquer dica ou feedback em relação ao código, por favor, enviar para
+If you guys have any feedbacks or suggestions about the code, please, send them at
 pedropereralourenco@gmail.com
 
 ## Setup
 
-Depois de ter baixado a Library, importe a pasta PTween para o seu projeto Unity.
+After downloading the library, import the PTween folder into your Unity project.
+All codes that use the PTween API most have the <i>PTween namespace</i> in them.
 
-Após importar a lib, todos sos seus códigos que forem precisar de utilizar algum script to Ptween terão que usar a namespace <i>Ptween</i>
 ```cs
 using namespace PTween;
 ```
 
 ## Structure
 
-Você precisará somente de três scripts: 
-  1. <b>PTweenPlayerComponent -</b> Component pai que irá conter todos os Tweeners de sua interface que serão tocadas.
-  2. <b>PTweenComponent -</b> Component que irá animar o elemento da interface. Seu parent não precisa ter um PTweenPlayerComponent, desde que seu root parent tenha um.   
-  3. <b>PTweenUtil -</b> Classe estática que contém todos os comandos necessários para o funcionamento do sistema. 
+You will need only these three scripts:
+  1. <b>PTweenPlayerComponent -</b> Root component that holds all tweeners that will be played.
+  2. <b>PTweenComponent -</b> UI Element that will be animated, it holds the configuration of its animation, you can config its position, rotation, scale, and alpha animations. 
+  3. <b>PTweenUtil -</b> Static class that has all needed commands for the PTween System.
   
 ## Creating the UI
   
-Para criar uma UI na Unity que use o PTween é recomendável adicionar um <i>PTweenPlayerComponent</i> em um painel, onde nele irá conter em seus childs todos os <i>PTweenComponents</i> que serão animados.
+To create a UI in Unity that uses PTween will be necessary to add a <i>PTweenPlayerComponent</i> in a root panel. There will have all children that use <i>PTweenComponents</i> to be animated.
  
  Eg:
  
@@ -41,12 +41,13 @@ Para criar uma UI na Unity que use o PTween é recomendável adicionar um <i>PTw
  &nbsp; &nbsp;  | <br>
  &nbsp; &nbsp;  |- Quit (Button) <b>PtweenComponent</b> <br>
                 
- Depois de criar seu Painel, o PTweenPlayerComponent automaticamente vai tentar pegar todos os TweenComponents presentes em seus Childs. 
- Cada PTweenPlayerComponent vai ser uma animação que pode ser tocada na sua UI, animação essa que pode ser tocada de tras pra frente também.
+ After creating your panel, the PTweenPlayerComponent will try to get all PTweenComponents in its children.
+ Each PTweenPlayerComponent will be an animation that can be played on your UI, that animation can also be played backward.
  
  ## Playing the animation
  
  Para tocar um PtweenPlayerComponent, basta usar o comando <i>StartPTweenPlayerComponent</i> em <i>PTweenUtil</i>.
+ To play the PTweenPlayerComponent, you just need to use the <i>StartPTweenPlayerComponent</i> command, in <i>PTweenUtil</i>.
  
  ```cs
 public static PTweenPlayerInstance StartPTweenPlayerComponent(PTweenPlayerComponent playerComponent, PTweenAnimationDirection animationDirection);
@@ -71,7 +72,7 @@ void Update()
 }
 ```
 
-<b>NOTE:</b> Ao tocar um <i>PTweenPlayerComponent</i> usando o <i>StartPTweenPlayerComponent</i>, uma <i>PTweenPlayerInstance</i> é adicionada em uma lista em <i>PTweenUtil</i> para que possa ter a sua animação atualizada. Então, para que todas as Tweens rode corretamente, é preciso chamar a função PTweenUtil.Update(), considerando o fato de você ter uma UIManager responsável por controlar toda UI do jogo.<br>
+<b>NOTE:</b> When playing a <i>PTweenPlayerComponent</i>, a <i>PTweenPlayerInstance</i> will be instantiate and added into a list inside <i>PTweenUtil</i>, so it animation can be updated. To update that list, just call for the <i>Update()</i> also in <i>PTweenUtil</i>.
 
 Eg:
 
