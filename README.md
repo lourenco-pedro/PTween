@@ -1,5 +1,9 @@
 # PTween
 
+<p align="center"> 
+<img src="https://media.giphy.com/media/z088g5dDX5IqSsnXM3/giphy.gif" style="max-height: 300px;">
+</p>
+
 Uma maneira mais fácil de criar animações para UI. Crie navegações mais dinâmicas entre interfaces, com uma API simples e fácil de entender.
 
 Se vocês tiverem qualquer dica ou feedback em relação ao código, por favor, enviar para
