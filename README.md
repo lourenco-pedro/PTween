@@ -46,8 +46,7 @@ To create a UI in Unity that uses PTween will be necessary to add a <i>PTweenPla
  
  ## Playing the animation
  
- Para tocar um PtweenPlayerComponent, basta usar o comando <i>StartPTweenPlayerComponent</i> em <i>PTweenUtil</i>.
- To play the PTweenPlayerComponent, you just need to use the <i>StartPTweenPlayerComponent</i> command, in <i>PTweenUtil</i>.
+To play the PTweenPlayerComponent, you just need to use the <i>StartPTweenPlayerComponent</i> command, in <i>PTweenUtil</i>.
  
  ```cs
 public static PTweenPlayerInstance StartPTweenPlayerComponent(PTweenPlayerComponent playerComponent, PTweenAnimationDirection animationDirection);
